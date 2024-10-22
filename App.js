@@ -1,16 +1,43 @@
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import Home from "./app/pages/mainPage"
+import MainScreen from './app/pages/MainScreen';
+import ScreenConfigs from './app/pages/Configs';
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-      </Stack.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarStyle: { backgroundColor: '#fff' },
+          tabBarLabelStyle: { fontSize: 16, fontWeight: 'bold' },
+        }}
+      >
+        <Tab.Screen 
+          name="Home" 
+          component={MainScreen} 
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <Ionicons name="home" color={focused ? 'black' : 'gray'} size={30} />
+            ),
+          }} 
+        />
+
+        <Tab.Screen 
+          name="Settings" 
+          component={ScreenConfigs} 
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <Ionicons name="settings" color={focused ? 'black' : 'gray'} size={30} />
+            ),
+          }} 
+        />
+        
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
