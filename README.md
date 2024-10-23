@@ -3,8 +3,9 @@
 npx expo start
 
 --------- Instalar expo y yan para los comandos (ya se tiene que tener instalado nodejs)
-npm install -g expo-cli
-npm install -g yarn
+npm install --global expo-cli
+npm install --global yarn
+
 
 Nota: si presenta errores, decirle a chat
 
