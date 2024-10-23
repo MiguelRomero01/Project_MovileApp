@@ -37,3 +37,5 @@ Cuenta: Midnight019067@gmail.com
 contraseña:migue9067 / migue9067$ / Migue9067 / Migue9067$  
 Alguna de esas 4. la mas probable es la uno o 2
 
+si se puede acceder directamente al link mejor, pero igual se necesita de la anterior cuenta
+https://console.firebase.google.com/u/0/project/chat-13dd0/firestore/databases/-default-/data/~2Fchats~2F7IJSRFCenUf5nw30sMlE?hl=es-419
