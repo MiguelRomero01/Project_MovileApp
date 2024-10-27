@@ -2,6 +2,7 @@ import React, { useState, createContext, useContext, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { View, ActivityIndicator } from 'react-native';
+
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './config/firebase';
 
@@ -9,7 +10,8 @@ import Login from './screens/Login';
 import Signup from './screens/Signup';
 import Chat from './screens/Chat';
 import Home from './screens/Home';
-import ChatList  from './screens/msgRecient';
+import DetailScreen from './screens/Details';
+
 
 const Stack = createStackNavigator();
 const AuthenticatedUserContext = createContext({});
@@ -25,10 +27,10 @@ return (
 
 function ChatStack() {
   return (
-    <Stack.Navigator defaultScreenOptions={Home}>
+    <Stack.Navigator defaultScreenOptions={DetailScreen}>
+      <Stack.Screen name='Details' component={DetailScreen}/>
       <Stack.Screen name='Home' component={Home} />
       <Stack.Screen name='Chat' component={Chat} />
-      <Stack.Screen name='ChatList' component={ChatList}/>
     </Stack.Navigator>
   );
 }

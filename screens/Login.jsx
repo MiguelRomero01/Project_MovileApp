@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Button, TextInput, Image, SafeAreaView, TouchableOpacity, StatusBar, Alert } from "react-native";
+import { StyleSheet, Text, View, TextInput, Image, SafeAreaView, TouchableOpacity, StatusBar, Alert } from "react-native";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
 const backImage = require("../assets/backImage.png");
@@ -13,7 +13,7 @@ export default function Login({ navigation }) {
     if (email !== "" && password !== "") {
       signInWithEmailAndPassword(auth, email, password)
         .then(() => console.log("Login success"))
-        .catch((err) => Alert.alert("Login error", err.message));
+        .catch((err) => Alert.alert("Login error: Authentication"));
     }
   };
   

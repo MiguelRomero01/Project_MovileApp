@@ -1,35 +1,46 @@
 import 'dotenv/config';
 
 export default {
-  "expo": {
-    "name": "ChatApp",
-    "slug": "ChatApp",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+  expo: {
+    name: "ChatApp",
+    slug: "ChatApp",
+    version: "1.0.0",
+    orientation: "portrait",
+    icon: "./assets/icon.png",
+    splash: {
+      image: "./assets/splash.png",
+      resizeMode: "contain",
+      backgroundColor: "#ffffff"
     },
-    "updates": {
-      "fallbackToCacheTimeout": 0
+    updates: {
+      fallbackToCacheTimeout: 0
     },
-    "assetBundlePatterns": [
+    assetBundlePatterns: [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
+    ios: {
+      supportsTablet: true
     },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+    android: {
+      adaptiveIcon: {
+        foregroundImage: "./assets/adaptive-icon.png",
+        backgroundColor: "#FFFFFF"
       }
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    web: {
+      favicon: "./assets/favicon.png"
     },
+    plugins: [
+      [
+        "expo-build-properties",
+        {
+          android: {
+            compileSdkVersion: 33,
+            targetSdkVersion: 33
+          }
+        }
+      ]
+    ],
     extra: {
       apiKey: process.env.API_KEY,
       authDomain: process.env.AUTH_DOMAIN,
