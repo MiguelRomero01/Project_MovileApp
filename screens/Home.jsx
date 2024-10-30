@@ -1,13 +1,16 @@
 import React, { useLayoutEffect } from "react";
-import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import { View, TouchableOpacity, Text, StyleSheet, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign, Entypo } from '@expo/vector-icons';
 import { signOut } from 'firebase/auth';
 import { auth } from './../config/firebase';
 import colors from '../colors';
 
+const ImageWelcome = require("../assets/CapibaraI002.png");
+const ImageChat = require("../assets/CapibaraM004.png");
+
 const Home = ({ route }) => {
-    const { name, lastName, value} = route.params;
+    const { name, lastName, value, valueTheme } = route.params;
     const navigation = useNavigation();
 
     const onSignOut = () => {
@@ -25,7 +28,8 @@ const Home = ({ route }) => {
     }, [navigation]);
 
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, { backgroundColor: valueTheme }]}>
+            <Image source={ImageWelcome} style={styles.Image} />
             <Text style={styles.welcomeText}>Bienvenido, {name} {lastName}</Text>
             <Text style={styles.statusText}>Recuerda que tu estado es este: {value}</Text>
 
@@ -33,7 +37,7 @@ const Home = ({ route }) => {
                 onPress={() => navigation.navigate("Chat")}
                 style={styles.chatButton}
             >
-                <Entypo name="chat" size={24} color={colors.lightGray} />
+                <Image source={ImageChat} style={styles.ImageChat} />
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -53,16 +57,25 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 30,
-        backgroundColor: "#f2f5f7",
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: 'center', // Centra verticalmente
+        alignItems: 'center',     // Centra horizontalmente
     },
     welcomeText: {
         fontSize: 24,
         fontWeight: '600',
-        color: colors.black,
         textAlign: 'center',
         marginBottom: 5,
+    },
+    Image: {
+        width: 130,
+        height: 130,
+        marginBottom: 20,
+        borderRadius: 10,
+    },
+    ImageChat: {
+        width: 60, // Cambia este valor al tamaño deseado
+        height: 70, // Cambia este valor al tamaño deseado
+        marginBottom:15,
     },
     statusText: {
         fontSize: 16,
@@ -71,13 +84,11 @@ const styles = StyleSheet.create({
         marginBottom: 40,
     },
     chatButton: {
-        backgroundColor: colors.primary,
         height: 60,
         width: 60,
         borderRadius: 30,
         alignItems: 'center',
         justifyContent: 'center',
-        shadowColor: colors.primary,
         shadowOffset: { width: 0, height: 5 },
         shadowOpacity: 0.3,
         shadowRadius: 12,

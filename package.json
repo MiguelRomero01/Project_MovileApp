@@ -40,7 +40,8 @@
     "react-native-web": "~0.19.10"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "typedoc": "^0.26.10"
   },
   "private": true
 }
