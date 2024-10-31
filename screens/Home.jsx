@@ -57,8 +57,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 30,
-        justifyContent: 'center', // Centra verticalmente
-        alignItems: 'center',     // Centra horizontalmente
+        justifyContent: 'center', 
+        alignItems: 'center',    
     },
     welcomeText: {
         fontSize: 24,
@@ -73,8 +73,8 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     ImageChat: {
-        width: 60, // Cambia este valor al tamaño deseado
-        height: 70, // Cambia este valor al tamaño deseado
+        width: 100, 
+        height: 100, 
         marginBottom:15,
     },
     statusText: {

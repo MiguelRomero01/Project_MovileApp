@@ -5,7 +5,9 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import colors from '../colors';
 
+
 const DetailScreen = ({ navigation }) => {
+    const ImageSettings = require("../assets/Engranaje001.png")
     // User Name
     const [name, setName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -37,7 +39,9 @@ const DetailScreen = ({ navigation }) => {
 
     return (
         <View style={StylesConfig.container}>
+            
             <SafeAreaView style={StylesConfig.ConfigsForm}>
+                <Image source={ImageSettings} style={StylesConfig.Image}/>
                 <View style={StylesConfig.inputContainer}>
                     <Text style={StylesConfig.ConfigOption}>Nombre completo</Text>
                     <TextInput
@@ -179,4 +183,10 @@ const StylesConfig = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
     },
+    Image:{
+        height:130,
+        width:130,
+        marginTop:-120,
+        alignSelf:'center',
+    }
 });
